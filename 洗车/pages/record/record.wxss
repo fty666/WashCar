@@ -1,0 +1,30 @@
+page {
+  background: rgba(241, 241, 241, 1);
+}
+
+.font {
+  font-size: 18px;
+  font-family: PingFang-SC-Bold;
+  font-weight: bold;
+  color: rgba(0, 0, 0, 1);
+}
+
+.xia {
+  width: 90%;
+  height: 1px;
+  background: rgba(241, 241, 241, 1);
+}
+
+.flex {
+  display: flex;
+}
+
+.name {
+  font-size: 14px;
+  font-family: PingFang-SC-Regular;
+  font-weight: 400;
+  color: rgba(51, 51, 51, 1);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}

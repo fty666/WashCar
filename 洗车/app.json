@@ -1,0 +1,13 @@
+{
+  "pages": [
+    "pages/record/record",
+    "pages/info/info",
+    "pages/logn/logn",
+    "pages/logs/logs"
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#0363F9",
+    "navigationBarTextStyle": "#FFFFFF"
+  }
+}

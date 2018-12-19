@@ -1,0 +1,162 @@
+/**index.wxss**/
+
+page {
+  background: rgba(241, 241, 241, 1);
+}
+
+/* 店铺信息 */
+
+.shop {
+  background: rgba(255, 255, 255, 1);
+}
+
+.name {
+  font-size: 20px;
+  font-family: PingFang-SC-Bold;
+  font-weight: bold;
+  color: rgba(51, 51, 51, 1);
+}
+
+.phone {
+  font-size: 17px;
+  font-family: PingFang-SC-Bold;
+  font-weight: bold;
+  color: #333;
+}
+
+.number {
+  font-size: 17px;
+  font-family: PingFang-SC-Regular;
+  color: #333;
+}
+
+/* 优惠券 */
+
+.coupon {
+  font-size: 17px;
+  font-family: PingFang-SC-Bold;
+  font-weight: bold;
+  color: rgba(0, 0, 0, 1);
+}
+
+.xia {
+  background: rgba(241, 241, 241, 1);
+  width: 90%;
+  height: 1px;
+}
+
+.flex {
+  display: flex;
+}
+
+/* 领取 */
+
+.draw {
+  background: linear-gradient(-79deg, rgba(57, 134, 255, 1) 0%, rgba(56, 179, 240, 1) 100%);
+  border-radius: 5px;
+}
+
+.money {
+  font-size: 36px;
+  font-family: PingFang-SC-Bold;
+  font-weight: bold;
+  color: rgba(255, 255, 255, 1);
+}
+
+.lin {
+  border: 1px solid rgba(255, 255, 255, 1);
+  border-radius: 21px;
+}
+
+.qu {
+  font-size: 14px;
+  font-family: PingFang-SC-Regular;
+  font-weight: 400;
+  color: rgba(255, 255, 255, 1);
+}
+
+.font {
+  font-size: 16px;
+  font-family: PingFang-SC-Regular;
+  font-weight: 400;
+  color: rgba(255, 255, 255, 1);
+  word-break:break-all;
+
+}
+
+.time {
+  font-size: 12px;
+  font-family: PingFang-SC-Regular;
+  font-weight: 400;
+  color: rgba(255, 255, 255, 1);
+}
+
+.pai {
+  font-size: 26px;
+  font-family: PingFang-SC-Bold;
+  font-weight: bold;
+  color: rgba(255, 255, 255, 1);
+  text-align: center;
+}
+
+.take {
+  font-size: 26px;
+  font-family: PingFang-SC-Bold;
+  font-weight: bold;
+  color: rgba(255, 255, 255, 1);
+}
+
+.wait {
+  font-size: 14px;
+  font-family: PingFang-SC-Regular;
+  font-weight: 400;
+  color: rgba(255, 255, 255, 1);
+}
+
+/* 遮罩层 */
+
+.location {
+  position: fixed;
+  bottom: 0px;
+  width: 100%;
+  height: 100%;
+  z-index: 99999999999;
+  background: rgba(0, 0, 0, 0.5);
+}
+
+.hao {
+  text-align: center;
+  font-size: 17px;
+  font-family: PingFang-SC-Medium;
+  font-weight: 500;
+  color: rgba(51, 51, 51, 1);
+}
+
+.num {
+  font-size: 21px;
+  font-family: PingFang-SC-Medium;
+  font-weight: 500;
+  color: #1781f6;
+}
+
+.qian {
+  font-size: 14px;
+  font-family: PingFang-SC-Medium;
+  font-weight: 500;
+  color: rgba(102, 102, 102, 1);
+  text-align: center;
+}
+
+.esc {
+  font-size: 15px;
+  font-family: PingFang-SC-Medium;
+  font-weight: 500;
+  color: rgba(102, 102, 102, 1);
+  text-align: center;
+}
+
+.cha{
+  float: right;
+  margin-right: 8px;
+  color: #A0A0A0;
+}

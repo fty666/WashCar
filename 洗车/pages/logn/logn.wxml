@@ -1,0 +1,84 @@
+<view>
+  <!-- 背景图 -->
+  <view style='background:url("https://zuoanzac.oss-cn-beijing.aliyuncs.com/bj.png")no-repeat;width:100%;height:{{px2rpxWidth*550}}px;'></view>
+  <!-- 登录 -->
+  <view class='logo' style="margin-top:{{-260*px2rpxHeight}}px;z-index:999999;width:80%;height:{{800*px2rpxHeight}}px;margin-left:{{80*px2rpxWidth}}px;">
+
+    <!-- logo图片 -->
+    <view style='margin-top:{{px2rpxHeight*80}}px;margin-left:{{px2rpxWidth*230}}px'>
+      <image src='../../images/logo.png' style='width:{{px2rpxWidth*130}}px;height:{{px2rpxWidth*162}}px'></image>
+    </view>
+
+    <!-- 手机号 -->
+    <view class='flex' style='margin-left:{{px2rpxWidth*80}}px;margin-top:{{px2rpxHeight*100}}px'>
+      <view class='mobile'>
+        <image src='../../images/mobel.png' style='width:{{px2rpxHeight*30}}px;height:{{px2rpxHeight*40}}px'></image>
+      </view>
+      <view style='margin-left:{{px2rpxWidth*30}}px;'>
+        <input placeholder="输入手机号" bindblur='phone' placeholder-class='zhan' placeholder-style='margin-left:{{10*px2rpxWidth}}px;'></input>
+      </view>
+
+    </view>
+    <view class='xia' style='margin-left:{{px2rpxWidth*55}}px;margin-top:{{10*px2rpxHeight}}px'></view>
+    <!-- 手机号完 -->
+
+    <!-- 验证码 -->
+    <view class='flex' style='margin-left:{{px2rpxWidth*80}}px;margin-top:{{px2rpxHeight*50}}px'>
+      <view class='mobile'>
+        <image src='../../images/verify.png' style='width:{{px2rpxHeight*30}}px;height:{{px2rpxHeight*30}}px'></image>
+      </view>
+      <view style='margin-left:{{px2rpxWidth*30}}px;width:45%;'>
+        <input placeholder="输入验证码" placeholder-class='zhan' bindblur='getSms' placeholder-style='margin-left:{{10*px2rpxWidth}}px;'></input>
+      </view>
+      <view class='yard' style='width:{{150*px2rpxWidth}}px;height:{{px2rpxHeight*42}}px;line-height:{{px2rpxHeight*36}}px;'>
+        <block wx:if="{{code==true}}">
+          <text catchtap='getCode'>获取验证码</text>
+        </block>
+        <block wx:else>
+          <text>{{time}}s后重试</text>
+        </block>
+      </view>
+    </view>
+    <view class='xia' style='margin-left:{{px2rpxWidth*55}}px;margin-top:{{18*px2rpxHeight}}px'></view>
+    <!-- 验证码完 -->
+
+    <!-- 绑定 -->
+    <view class='bound' style='background:url("https://zuoanzac.oss-cn-beijing.aliyuncs.com/bangs.png");width:80%;height:{{px2rpxHeight*90}}px;margin-left:{{px2rpxWidth*50}}px;margin-top:{{px2rpxHeight*30}}px;text-align:center;line-height:{{90*px2rpxHeight}}px;letter-spacing:10px'
+      catchtap='bound'>
+      绑定
+    </view>
+    <!-- 绑定完 -->
+
+    <view class='flex' style='margin-top:{{px2rpxHeight*30}}px;'>
+      <view>
+        <image src='../../images/si.png' style='width:{{px2rpxWidth*30}}px;height:{{px2rpxWidth*30}}px;margin-left:{{px2rpxWidth*50}}px'></image>
+      </view>
+      <view class='enroll' style='margin-left:{{px2rpxWidth*18}}px;line-height:{{42*px2rpxHeight}}px;'>注册即表示同意</view>
+      <view class='deal'>
+        <text decode='true' style='line-height:{{40*px2rpxHeight}}px;'>《XXX用户协议》&nbsp;《隐私政策》</text>
+      </view>
+    </view>
+
+  </view>
+
+  <!-- 遮罩层 -->
+  <block wx:if="{{mask==true}}">
+    <view class='location'>
+      <view class='kuan' style='width:{{px2rpxWidth*450}}px;height:{{px2rpxHeight*350}}px;margin-left:{{px2rpxWidth*150}}px;margin-top:{{px2rpxHeight*520}}px;background:white;'>
+        <view class='hao' style='line-height:{{px2rpxHeight*200}}px;height:{{150*px2rpxHeight}}px;'>
+          绑定成功
+        </view>
+        <view class='qian' style='line-height:{{px2rpxHeight*30}}px;font-weight: 500;height:{{px2rpxHeight*40}}px'>
+          您的优惠券已到账
+        </view>
+        <view class='qian' style='line-height:{{px2rpxHeight*44}}px;font-weight: 500;height:{{px2rpxHeight*40}}px'>
+          请至应用商店进行下载
+        </view>
+        <view style='height:1px;width:100%;background:#ddd;margin-top:{{px2rpxHeight*50}}px'></view>
+        <view class='esc' style='line-height:{{px2rpxHeight*70}}px;letter-spacing:{{px2rpxWidth*30}}px;margin-left:{{px2rpxWidth*175}}px' catchtap='row'>完成</view>
+      </view>
+    </view>
+  </block>
+  <!-- 遮罩层完 -->
+
+</view>

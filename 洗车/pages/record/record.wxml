@@ -1,0 +1,45 @@
+<view>
+  <!-- 轮播 -->
+  <view>
+    <swiper indicator-dots="true" autoplay="true" circular="true" indicator-color="rgba(0,0,0,0.5)" indicator-active-color="#ffffff" current="0" interval="3000" duration="600">
+      <block wx:for="{{img}}" wx:key="{{index}}">
+        <swiper-item>
+          <image src="{{imgUrl+item.carousels}}" style='width:100%;height:{{px2rpxHeight*421}}px' />
+        </swiper-item>
+      </block>
+    </swiper>
+  </view>
+  <!-- 轮播完 -->
+
+  <!-- 广告 -->
+  <view style='margin-top:{{10*px2rpxHeight}}px'>
+    <image src='../../images/ad.png' style='width:100%;height:{{px2rpxHeight*120}}px'></image>
+  </view>
+  <!-- 广告完 -->
+
+  <!-- 扫码 -->
+  <view style='background:url(../../images/MEIBO.png);width:100%;height:{{380*px2rpxHeight}}px;'>
+    <view class='font' style='height:{{px2rpxHeight*100}}px;margin-left:{{px2rpxWidth*30}}px;line-height:{{px2rpxHeight*100}}px'>扫码取号</view>
+    <view class='xia' style='margin-left:{{px2rpxWidth*30}}px;'></view>
+    <view style='margin-top:{{px2rpxHeight*40}}px;margin-left:{{px2rpxWidth*260}}px;'>
+      <image src='../../images/ma.png' style='width:{{200*px2rpxHeight}}px;height:{{px2rpxWidth*200}}px' catchtap='code'></image>
+    </view>
+  </view>
+  <!-- 扫码完 -->
+
+  <!--去过的店  -->
+  <view style='background:white;width:100%;height:{{380*px2rpxHeight}}px;margin-top:{{px2rpxHeight*10}}px;'>
+    <view class='font' style='height:{{px2rpxHeight*100}}px;margin-left:{{px2rpxWidth*30}}px;line-height:{{px2rpxHeight*100}}px'>去过的店铺</view>
+    <view class='xia' style='margin-left:{{px2rpxWidth*30}}px;'></view>
+    <view class='flex'>
+      <block wx:for="{{histroy}}" wx:key="{{index}}">
+        <view style='margin-top:{{px2rpxHeight*30}}px;margin-left:{{px2rpxWidth*23}}px'>
+          <view>
+            <image src='{{imgUrl+item.shop_logo}}' style='width:{{px2rpxWidth*160}}px;height:{{px2rpxWidth*160}}px' data-scode='{{item.shop_code}}' catchtap='goshop'></image>
+          </view>
+          <view class='name' style='margin-top:{{px2rpxHeight*15}}px;margin-left:{{px2rpxWidth*6}}px'>{{item.shop_name}}</view>
+        </view>
+      </block>
+    </view>
+  </view>
+</view>

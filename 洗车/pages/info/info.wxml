@@ -1,0 +1,196 @@
+<view>
+  <!-- 轮播图 -->
+  <view>
+    <swiper indicator-dots="true" autoplay="true" circular="true" indicator-color="rgba(0,0,0,0.5)" indicator-active-color="#ffffff" current="0" interval="3000" duration="600">
+      <block wx:for="{{img}}" wx:key="{{index}}">
+        <swiper-item indicator-dots="true" autoplay="true">
+          <image src="{{imgUrl+item.shop_logo}}" style='width:{{750*px2rpxWidth}}px;height:{{px2rpxHeight*310}}px' />
+        </swiper-item>
+      </block>
+    </swiper>
+  </view>
+  <!-- 轮播图完 -->
+
+  <!-- 店面信息 -->
+  <view class='shop' style='width:100%;height:{{px2rpxHeight*450}}px;margin-top:{{10*px2rpxHeight}}px'>
+    <view class="name" style='line-height:{{120*px2rpxHeight}}px;margin-left:{{30*px2rpxWidth}}px;'>
+      {{shopInfo.shop_name}}
+    </view>
+    <view class='flex' style='margin-bottom:{{px2rpxHeight*10}}px;'>
+      <view style='width:{{60*px2rpxWidth}}px;height:{{60*px2rpxWidth}}px;margin-left:{{10*px2rpxWidth}}px;'>
+        <image src='../../images/xin.png' style='width:{{60*px2rpxWidth}}px;height:{{60*px2rpxWidth}}px;margin-left:{{20*px2rpxWidth}}px;'></image>
+      </view>
+      <block wx:for="{{xin}}" wx:key="{{index}}">
+        <view style='width:{{60*px2rpxWidth}}px;height:{{60*px2rpxWidth}}px;margin-left:{{15*px2rpxWidth}}px;'>
+          <image src='../../images/xin.png' style='width:{{60*px2rpxWidth}}px;height:{{60*px2rpxWidth}}px;margin-left:{{15*px2rpxWidth}}px;'></image>
+        </view>
+      </block>
+    </view>
+    <view style='line-height:{{60*px2rpxHeight}}px;margin-left:{{30*px2rpxWidth}}px'>
+      <text class='phone'>联系电话：</text>
+      <text class='number' decode='true'>{{shopInfo.mobile}}</text>
+    </view>
+    <view style='line-height:{{60*px2rpxHeight}}px;margin-left:{{30*px2rpxWidth}}px'>
+      <text class='phone'>店铺地址:</text>
+      <text class='number' decode='true'>&nbsp;&nbsp;{{shopInfo.shop_addr}}</text>
+    </view>
+    <view style='line-height:{{60*px2rpxHeight}}px;margin-left:{{30*px2rpxWidth}}px'>
+      <text class='phone'>营业时间：</text>
+      <text class='number' decode='true'>{{shopInfo.serviceTime}}</text>
+    </view>
+    <view style='line-height:{{60*px2rpxHeight}}px;margin-left:{{30*px2rpxWidth}}px'>
+      <text class='phone'>经营业务:</text>
+      <text class='number' decode='true'>&nbsp;&nbsp;{{shopInfo.service}}</text>
+    </view>
+  </view>
+  <!-- 点面信息完 -->
+
+  <!-- 优惠券 -->
+  <view style='width:100%;height:{{220*px2rpxHeight*2}}px;background:rgba(255,255,255,1);margin-top:{{px2rpxHeight*10}}px;'>
+    <!-- 字 -->
+    <view class='coupon' style='margin-left:{{30*px2rpxWidth}}px;height:{{80*px2rpxHeight}}px;line-height:{{px2rpxHeight*80}}px'>
+      优惠券
+    </view>
+    <view class='xia' style='margin-left: {{px2rpxHeight*30}}px;'></view>
+    <!-- 领取 -->
+    <view class='flex' style='width:100%;height:{{px2rpxHeight*130*2}}px;margin-top:{{50*px2rpxHeight}}px;overflow:hidden;display:flex;'>
+      <scroll-view scroll-x="true" style="width:100%;height:100%;display:inline-block;">
+        <view class='flex'>
+          <!-- 领取 -->
+          <block wx:for="{{coupon}}" wx:key="{{index}}">
+            <view class='draw' style='width:{{150*px2rpxWidth*2}}px;margin-left:{{px2rpxWidth*30}}px;height:{{px2rpxHeight*250}}px'>
+              <view class='flex'>
+                <!-- 判断优惠券类型 -->
+                <block wx:if="{{item.coupon_type==1}}">
+                  <view class='money' style='width:34%;margin-left:{{px2rpxWidth*8}}px;font-size:20px;line-height:{{88*px2rpxHeight}}px'>
+                    <text style='font-family:PingFang-SC-Bold;font-size:18px;'>￥</text>
+                    <text style='font-family:PingFang-SC-Bold;font-size:27px;'>{{item.item}}</text>
+                  </view>
+                </block>
+
+                <block wx:if="{{item.coupon_type==2}}">
+                  <view class='money' style='width:35%;margin-left:{{px2rpxWidth*8}}px;font-size:20px;line-height:{{88*px2rpxHeight}}px'>
+                    <text style='font-family:PingFang-SC-Bold;font-size:27px;'>{{item.item}}</text>
+                    <text style='font-family:PingFang-SC-Bold;font-size:18px;margin-left:{{px2rpxWidth*10}}px'>折</text>
+                  </view>
+                </block>
+
+                <block wx:if="{{item.coupon_type==3}}">
+                  <view class='money' style='width:35%;margin-left:{{px2rpxWidth*8}}px;font-size:20px;line-height:{{88*px2rpxHeight}}px'>
+                    <text style='font-family:PingFang-SC-Bold;font-size:18px;'>￥</text>
+                    <text style='font-family:PingFang-SC-Bold;font-size:27px;'>{{item.item}}</text>
+                  </view>
+                </block>
+                <block wx:if="{{item.coupon_type==4}}">
+                  <view class='money' style='width:30%;margin-left:{{20*px2rpxWidth}}px;line-height:{{90*px2rpxHeight}}px'>
+                    赠
+                  </view>
+                </block>
+                <!-- 判断优惠券类型完 -->
+                <view class='lin' style='width:{{80*px2rpxWidth*2}}px;height:{{25*px2rpxHeight*2}}px;margin-top:{{20*px2rpxHeight}}px;margin-left:{{5*px2rpxWidth}}px'>
+                  <text class='qu' style='margin-left:{{px2rpxWidth*20}}px;line-height{{70*px2rpxHeight}}px;' data-gid='{{item.couponId}}' catchtap='getPhone'>点击领取</text>
+                </view>
+              </view>
+              <view class='xia' style='margin-left:{{px2rpxWidth*20}}px'></view>
+              <!-- 优惠券描述 -->
+              <block wx:if="{{item.coupon_type==1}}">
+                <view class='font' style='width:80%;height:{{40*px2rpxHeight*2}}px;margin-left:{{px2rpxWidth*20}}px;margin-top:{{20*px2rpxHeight}}px;'>满{{item.term}}元可使用</view>
+              </block>
+              <block wx:if="{{item.coupon_type==2}}">
+                <view class='font' style='width:100%;height:{{40*px2rpxHeight*2}}px;margin-left:{{px2rpxWidth*20}}px;margin-top:{{20*px2rpxHeight}}px;font-size:16px;'>典典汽车折扣券</view>
+              </block>
+              <block wx:if="{{item.coupon_type==3}}">
+                <view class='font' style='width:80%;height:{{40*px2rpxHeight*2}}px;margin-left:{{px2rpxWidth*20}}px;margin-top:{{20*px2rpxHeight}}px;'>惊洗优惠券</view>
+              </block>
+              <block wx:if="{{item.coupon_type==4}}">
+                <view class='font' style="display:block;margin-left:{{px2rpxWidth*20}}px;width:{{px2rpxWidth*260}}px;height:{{px2rpxHeight*85}}px; word-break:break-all;word-wrap: break-word;margin-top:{{20*px2rpxHeight}}px;font-size:15px;">{{item.freegoods}}(满{{item.term}}使用)</view>
+              </block>
+              <!-- 优惠券描述完 -->
+              <view class='time' style='margin-left:{{px2rpxWidth*20}}px;width:{{px2rpxWidth*400}}px;'>{{item.couponTime}}</view>
+            </view>
+          </block>
+        </view>
+      </scroll-view>
+    </view>
+  </view>
+  <!-- 优惠券完 -->
+
+  <!-- 取号排队 -->
+  <block wx:if="{{rowNumber==1}}">
+    <view class='pai' style='background:url("https://zuoanzac.oss-cn-beijing.aliyuncs.com/ju.png");width:90%;height:{{px2rpxHeight*143}}px;margin-top:{{px2rpxHeight*70}}px;margin-left:{{px2rpxWidth*30}}px;margin-bottom:30px;' data-code='{{shopInfo.shop_code}}'
+      catchtap='take'>
+      <text style='line-height:{{150*px2rpxHeight}}px' data-code='{{shopInfo.shop_code}}' catchtap='take'>取号排队</text>
+    </view>
+  </block>
+  <!-- 取号排队完 -->
+
+  <!-- 正在排队 -->
+  <block wx:if="{{rowNumber==2}}">
+    <view class='pai' style='background:url("https://zuoanzac.oss-cn-beijing.aliyuncs.com/bang.png");width:90%;height:{{px2rpxHeight*145}}px;margin-top:{{px2rpxHeight*70}}px;margin-left:{{px2rpxWidth*30}}px;margin-bottom:30px;' catchtap='row'>
+      <view class='take' style='line-height:{{120*px2rpxWidth}}px' catchtap='mask'>
+        排队号：{{takeInfo.num}}
+      </view>
+      <view class='wait' style='margin-top:{{-22*px2rpxHeight}}px;' catchtap='mask'>
+        前方排队数：{{takeInfo.waitfor}}
+      </view>
+    </view>
+  </block>
+  <!-- 正在排队完 -->
+
+  <!-- 过期重新排队 -->
+  <block wx:if="{{rowNumber==3}}">
+    <view class='pai' style='background:url("https://zuoanzac.oss-cn-beijing.aliyuncs.com/esc.png");width:90%;height:{{px2rpxHeight*145}}px;margin-top:{{px2rpxHeight*70}}px;margin-left:{{px2rpxWidth*30}}px;margin-bottom:30px;' catchtap='row'>
+      <view class='take' style='line-height:{{120*px2rpxWidth}}px' data-code='{{shopInfo.shop_code}}' catchtap='row'>
+        排队号：{{takeInfo.num}}
+      </view>
+      <view class='wait' style='margin-top:{{-22*px2rpxHeight}}px;' data-code='{{shopInfo.shop_code}}' catchtap='take'>
+        您已经过号，点击重新取号
+      </view>
+    </view>
+  </block>
+  <!-- 过期重新排队完 -->
+
+  <!-- 遮罩层 -->
+  <!-- 正在取号 -->
+  <block wx:if="{{ing==true}}">
+    <view class='location'>
+      <view style='width:{{px2rpxWidth*450}}px;height:{{px2rpxHeight*350}}px;margin-left:{{px2rpxWidth*150}}px;margin-top:{{px2rpxHeight*250}}px;background:#FFFFFF;'>
+        <view class='flex'>
+          <view class='esc' style='margin-left:{{px2rpxWidth*160}}px;line-height:{{px2rpxHeight*100}}px;color:#1781F6;font-family:PingFang-SC-Medium;font-weight:bold;letter-spacing: 1rpx;' catchtap='cing'>取号成功！</view>
+          <view class='cha' catchtap='cing'>
+            <image src='../../images/close.png' style='width:{{15*px2rpxWidth}}px;height:{{px2rpxHeight*15}}px;margin-left:{{px2rpxWidth*90}}px'></image>
+          </view>
+        </view>
+        <view style='height:1px;width:100%;background:#EBEBEB;'></view>
+        <view class='hao' style='margin-top:{{px2rpxHeight*60}}px;'>您的号码为:
+          <text class='num'>{{takeInfo.num}}号</text>
+        </view>
+        <view class='qian' style='margin-top:{{px2rpxHeight*20}}px;'>前方排队车辆:
+          <text style='color:#1781f6; font-size: 16px;'>{{takeInfo.waitfor}}</text>
+        </view>
+      </view>
+    </view>
+  </block>
+  <!-- 正在取号 -->
+  <!-- 取消排队 -->
+  <block wx:if="{{mask==true}}">
+    <view class='location' catchtap='esmask'>
+      <view style='width:{{px2rpxWidth*450}}px;height:{{px2rpxHeight*350}}px;margin-left:{{px2rpxWidth*150}}px;margin-top:{{px2rpxHeight*250}}px;background:#FFFFFF;'>
+        <view class='cha' style='height:{{px2rpxHeight*20}}px' catchtap='esmask'>x</view>
+        <view class='hao' style='margin-left:{{px2rpxWidth*50}}px;line-height:{{px2rpxHeight*200}}px;height:{{150*px2rpxHeight}}px'>您的号码为:
+          <text class='num'>{{takeInfo.num}}号</text>
+        </view>
+        <view class='qian' style='margin-top:{{px2rpxHeight*8}}px;font-weight: 500;height:{{px2rpxHeight*120}}px'>前方排队车辆:
+          <text style='color:#1781f6; font-size: 16px;'>{{takeInfo.waitfor}}</text>
+        </view>
+        <view style='height:1px;width:100%;background:#EBEBEB;'></view>
+        <view class='esc' style='margin-top:{{px2rpxHeight*10}}px' data-code='{{shopInfo.shop_code}}' catchtap='row'>取消排号</view>
+      </view>
+    </view>
+  </block>
+  <!-- 取消排队完 -->
+  <!-- 遮罩层完 -->
+
+
+
+</view>
