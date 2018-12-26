@@ -31,15 +31,19 @@
   <view style='background:white;width:100%;height:{{380*px2rpxHeight}}px;margin-top:{{px2rpxHeight*10}}px;'>
     <view class='font' style='height:{{px2rpxHeight*100}}px;margin-left:{{px2rpxWidth*30}}px;line-height:{{px2rpxHeight*100}}px'>去过的店铺</view>
     <view class='xia' style='margin-left:{{px2rpxWidth*30}}px;'></view>
-    <view class='flex'>
-      <block wx:for="{{histroy}}" wx:key="{{index}}">
-        <view style='margin-top:{{px2rpxHeight*30}}px;margin-left:{{px2rpxWidth*23}}px'>
-          <view>
-            <image src='{{imgUrl+item.shop_logo}}' style='width:{{px2rpxWidth*160}}px;height:{{px2rpxWidth*160}}px' data-scode='{{item.shop_code}}' catchtap='goshop'></image>
+    <view class='flex' style='width:100%;height:{{px2rpxHeight*280}}px;white-space: nowrap;'>
+      <scroll-view scroll-x="true" style="width:100%;height:100%;">
+        <block wx:for="{{histroy}}" wx:key="{{index}}">
+          <view style='width:150px;margin-top:{{px2rpxHeight*30}}px;margin-left:{{px2rpxWidth*23}}px;display:inline-block;'>
+            <view>
+              <image src='{{imgUrl+item.shop_logo}}' style='width:{{px2rpxWidth*160}}px;height:{{px2rpxWidth*160}}px' data-scode='{{item.shop_code}}' catchtap='goshop'></image>
+            </view>
+            <view class='name' style='margin-top:{{px2rpxHeight*15}}px;margin-left:{{px2rpxWidth*6}}px'>
+              {{item.shop_name}}
+            </view>
           </view>
-          <view class='name' style='margin-top:{{px2rpxHeight*15}}px;margin-left:{{px2rpxWidth*6}}px'>{{item.shop_name}}</view>
-        </view>
-      </block>
+        </block>
+      </scroll-view>
     </view>
   </view>
 </view>

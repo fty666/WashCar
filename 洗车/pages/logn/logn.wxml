@@ -43,8 +43,7 @@
     <!-- 验证码完 -->
 
     <!-- 绑定 -->
-    <view class='bound' style='background:url("https://zuoanzac.oss-cn-beijing.aliyuncs.com/bangs.png");width:80%;height:{{px2rpxHeight*90}}px;margin-left:{{px2rpxWidth*50}}px;margin-top:{{px2rpxHeight*30}}px;text-align:center;line-height:{{90*px2rpxHeight}}px;letter-spacing:10px'
-      catchtap='bound'>
+    <view class='bound bjtp' style='width:80%;height:{{px2rpxHeight*90}}px;margin-left:{{px2rpxWidth*50}}px;margin-top:{{px2rpxHeight*30}}px;text-align:center;line-height:{{90*px2rpxHeight}}px;letter-spacing:10px' catchtap='bound'>
       绑定
     </view>
     <!-- 绑定完 -->
@@ -64,19 +63,36 @@
   <!-- 遮罩层 -->
   <block wx:if="{{mask==true}}">
     <view class='location'>
-      <view class='kuan' style='width:{{px2rpxWidth*450}}px;height:{{px2rpxHeight*350}}px;margin-left:{{px2rpxWidth*150}}px;margin-top:{{px2rpxHeight*520}}px;background:white;'>
-        <view class='hao' style='line-height:{{px2rpxHeight*200}}px;height:{{150*px2rpxHeight}}px;'>
-          绑定成功
+      <block wx:if="{{isIphoneX==true}}">
+        <view class='kuan' style='width:{{px2rpxWidth*450}}px;height:{{px2rpxHeight*300}}px;margin-left:{{px2rpxWidth*150}}px;margin-top:{{px2rpxHeight*520}}px;background:white;'>
+          <view class='hao' style='line-height:{{px2rpxHeight*110}}px;height:{{110*px2rpxHeight}}px;'>
+            绑定成功
+          </view>
+          <view class='qian' style='line-height:{{px2rpxHeight*30}}px;font-weight: 500;height:{{px2rpxHeight*40}}px'>
+            您的优惠券已到账
+          </view>
+          <view class='qian' style='line-height:{{px2rpxHeight*44}}px;font-weight: 500;height:{{px2rpxHeight*40}}px'>
+            请至应用商店进行下载
+          </view>
+          <view style='height:1px;width:100%;background:#ddd;margin-top:{{px2rpxHeight*45}}px'></view>
+          <view class='esc' style='line-height:{{px2rpxHeight*70}}px;letter-spacing:{{px2rpxWidth*30}}px;margin-left:{{px2rpxWidth*175}}px' catchtap='row'>完成</view>
         </view>
-        <view class='qian' style='line-height:{{px2rpxHeight*30}}px;font-weight: 500;height:{{px2rpxHeight*40}}px'>
-          您的优惠券已到账
+      </block>
+      <block wx:else>
+        <view class='kuan' style='width:{{px2rpxWidth*450}}px;height:{{px2rpxHeight*350}}px;margin-left:{{px2rpxWidth*150}}px;margin-top:{{px2rpxHeight*520}}px;background:white;'>
+          <view class='hao' style='line-height:{{px2rpxHeight*180}}px;height:{{150*px2rpxHeight}}px;'>
+            绑定成功
+          </view>
+          <view class='qian' style='line-height:{{px2rpxHeight*30}}px;font-weight: 500;height:{{px2rpxHeight*40}}px'>
+            您的优惠券已到账
+          </view>
+          <view class='qian' style='line-height:{{px2rpxHeight*44}}px;font-weight: 500;height:{{px2rpxHeight*40}}px'>
+            请至应用商店进行下载
+          </view>
+          <view style='height:1px;width:100%;background:#ddd;margin-top:{{px2rpxHeight*45}}px'></view>
+          <view class='esc' style='line-height:{{px2rpxHeight*70}}px;letter-spacing:{{px2rpxWidth*30}}px;margin-left:{{px2rpxWidth*175}}px' catchtap='row'>完成</view>
         </view>
-        <view class='qian' style='line-height:{{px2rpxHeight*44}}px;font-weight: 500;height:{{px2rpxHeight*40}}px'>
-          请至应用商店进行下载
-        </view>
-        <view style='height:1px;width:100%;background:#ddd;margin-top:{{px2rpxHeight*50}}px'></view>
-        <view class='esc' style='line-height:{{px2rpxHeight*70}}px;letter-spacing:{{px2rpxWidth*30}}px;margin-left:{{px2rpxWidth*175}}px' catchtap='row'>完成</view>
-      </view>
+      </block>
     </view>
   </block>
   <!-- 遮罩层完 -->

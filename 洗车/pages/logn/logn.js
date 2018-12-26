@@ -16,6 +16,8 @@ Page({
     sms: '', //验证码
     mask: false, //遮罩层
     scode: '', //店铺coe
+    opid: '', //oppid
+    isIphoneX:false,//ipx
   },
 
   /**
@@ -31,8 +33,28 @@ Page({
         that.setData({
           px2rpxHeight: res.data.px2rpxHeight,
           px2rpxWidth: res.data.px2rpxWidth,
-          // scode: options.scode
+          scode: options.scode
         })
+      }
+    })
+    wx.getStorage({
+      key: 'ppid',
+      success: function(res) {
+        let oids = res.data.openid;
+        that.setData({
+          opid: oids
+        })
+      }
+    })
+
+    wx.getSystemInfo({
+      success: function (res) {
+        console.log(res)
+        if (res.model == 'iPhone X') {
+          that.setData({
+            isIphoneX: true
+          })
+        }
       }
     })
   },
@@ -113,10 +135,11 @@ Page({
    */
   bound: function() {
     let that = this;
+    // console.log(that.data.opid); 
     let data = {
       mobile: that.data.mobile,
       smsCode: that.data.sms,
-      appletCode: '1111'
+      appletCode: that.data.opid
     };
 
     function calback(res) {
@@ -133,7 +156,7 @@ Page({
    *跳转 
    */
   row: function() {
-    wx.navigateTo({
+    wx.redirectTo({
       url: '/pages/info/info?scode=' + this.data.scode,
     })
   },

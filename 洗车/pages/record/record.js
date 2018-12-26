@@ -15,16 +15,18 @@ Page({
     imgUrl: '', //url地址
     opid: '', //oppid
   },
+
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function(options) {
     let that = this;
-    console.log(decodeURIComponent(options.scene))
+    //判断二维码传过来的参数 
     if (decodeURIComponent(options.scene) == 'undefined' || decodeURIComponent(options.scene) == undefined) {
 
-    }else{
+    } else {
       let scene = decodeURIComponent(options.scene);
+      console.log(decodeURIComponent(options.scene))
       wx.navigateTo({
         url: '/pages/info/info?scode=' + scene,
       })
@@ -53,6 +55,8 @@ Page({
     wx.getStorage({
       key: 'ppid',
       success: function(res) {
+        console.log('缓存opid')
+        console.log(res)
         that.setData({
           opid: res.data.openid
         })
@@ -65,17 +69,31 @@ Page({
    */
   onReady: function() {
     let that = this;
-    let data = {
-      appletCode: that.data.opid,
-    };
-
-    function calback(res) {
-      that.setData({
-        histroy: res,
-        imgUrl: config.imgUrl
+    // 判断二维码的code,跳转店铺
+    let Rcode = app.globalData.Rcode;
+    if (Rcode == 'false') {} else {
+      wx.navigateTo({
+        url: '/pages/info/info?scode=' + Rcode,
       })
+      return false;
     }
-    util.requestUrl(data, fundata.getHistory, calback, that);
+    // 获取opid查看历史记录
+    wx.getStorage({
+      key: 'ppid',
+      success: function(res) {
+        let data = {
+          appletCode: res.data.openid.user.applet_code,
+        };
+
+        function calback(res) {
+          that.setData({
+            histroy: res,
+            imgUrl: config.imgUrl
+          })
+        }
+        util.requestUrl(data, fundata.getHistory, calback, that);
+      }
+    })
   },
 
   /**
@@ -85,7 +103,9 @@ Page({
 
   },
 
-  // 跳转店铺
+  /**
+   * 跳转店铺
+   */
   goshop: function(e) {
     let scode = e.currentTarget.dataset.scode;
     wx.navigateTo({
@@ -93,7 +113,9 @@ Page({
     })
   },
 
-  //扫码
+  /**
+   *扫码
+   */
   code: function() {
     wx.scanCode({})
   }

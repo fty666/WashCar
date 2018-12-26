@@ -80,8 +80,7 @@ page {
   font-family: PingFang-SC-Regular;
   font-weight: 400;
   color: rgba(255, 255, 255, 1);
-  word-break:break-all;
-
+  word-break: break-all;
 }
 
 .time {
@@ -133,7 +132,6 @@ page {
 }
 
 .num {
-  font-size: 21px;
   font-family: PingFang-SC-Medium;
   font-weight: 500;
   color: #1781f6;
@@ -148,15 +146,31 @@ page {
 }
 
 .esc {
-  font-size: 15px;
   font-family: PingFang-SC-Medium;
   font-weight: 500;
   color: rgba(102, 102, 102, 1);
   text-align: center;
 }
 
-.cha{
+.cha {
   float: right;
   margin-right: 8px;
-  color: #A0A0A0;
+  color: #a0a0a0;
 }
+
+.bjtp {
+  background: linear-gradient(-27deg, rgba(57, 134, 255, 1) 0%, rgba(56, 179, 240, 1) 100%);
+  box-shadow: 0px 3px 7px 0px rgba(255, 164, 65, 0.38);
+  border-radius: 5px;
+}
+
+.fix-iphonex-button {
+  bottom: 68rpx !important;
+}
+.fix-iphonex-button::after {
+  content: ' ';
+  position: fixed;
+  bottom: 0!important;
+  height: 68rpx!important;
+  width: 100%;
+} 

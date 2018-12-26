@@ -19,8 +19,9 @@ App({
               // 把用户信息加入缓存
               //将oppid放到缓存中
               wx.setStorageSync('ppid', {
-                openid: data.data.data
+                openid: data.data.data.user.applet_code
               });
+              console.log(data.data.data.user.applet_code)
             }
           })
         } else {
@@ -55,6 +56,7 @@ App({
     });
   },
   globalData: {
-    userInfo: null
+    userInfo: null,
+    Rcode:'false'//二维码扫描的code
   }
 })

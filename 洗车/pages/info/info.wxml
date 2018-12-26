@@ -126,8 +126,8 @@
 
   <!-- 正在排队 -->
   <block wx:if="{{rowNumber==2}}">
-    <view class='pai' style='background:url("https://zuoanzac.oss-cn-beijing.aliyuncs.com/bang.png");width:90%;height:{{px2rpxHeight*145}}px;margin-top:{{px2rpxHeight*70}}px;margin-left:{{px2rpxWidth*30}}px;margin-bottom:30px;' catchtap='row'>
-      <view class='take' style='line-height:{{120*px2rpxWidth}}px' catchtap='mask'>
+    <view class='pai bjtp' style='width:90%;height:{{px2rpxHeight*145}}px;margin-top:{{px2rpxHeight*70}}px;margin-left:{{px2rpxWidth*30}}px;margin-bottom:30px;' catchtap='row'>
+      <view class='take' style='line-height:{{110*px2rpxHeight}}px' catchtap='mask'>
         排队号：{{takeInfo.num}}
       </view>
       <view class='wait' style='margin-top:{{-22*px2rpxHeight}}px;' catchtap='mask'>
@@ -154,43 +154,76 @@
   <!-- 正在取号 -->
   <block wx:if="{{ing==true}}">
     <view class='location'>
-      <view style='width:{{px2rpxWidth*450}}px;height:{{px2rpxHeight*350}}px;margin-left:{{px2rpxWidth*150}}px;margin-top:{{px2rpxHeight*250}}px;background:#FFFFFF;'>
-        <view class='flex'>
-          <view class='esc' style='margin-left:{{px2rpxWidth*160}}px;line-height:{{px2rpxHeight*100}}px;color:#1781F6;font-family:PingFang-SC-Medium;font-weight:bold;letter-spacing: 1rpx;' catchtap='cing'>取号成功！</view>
-          <view class='cha' catchtap='cing'>
-            <image src='../../images/close.png' style='width:{{15*px2rpxWidth}}px;height:{{px2rpxHeight*15}}px;margin-left:{{px2rpxWidth*90}}px'></image>
+      <block wx:if="{{isIphoneX==true}}">
+        <view style='width:{{px2rpxWidth*450}}px;height:{{px2rpxHeight*300}}px;margin-left:{{px2rpxWidth*150}}px;margin-top:{{px2rpxHeight*250}}px;background:#FFFFFF;border-radius:5px'>
+          <view class='flex'>
+            <view class='esc' style='margin-left:{{px2rpxWidth*160}}px;line-height:{{px2rpxHeight*80}}px;color:#1781F6;font-family:PingFang-SC-Medium;font-weight:bold;letter-spacing: 1rpx;font-size: {{30*px2rpxWidth}}px;' catchtap='cing'>取号成功！</view>
+            <view class='cha' catchtap='cing'>
+              <image src='../../images/close.png' style='width:{{15*px2rpxWidth}}px;height:{{px2rpxHeight*15}}px;margin-left:{{px2rpxWidth*90}}px'></image>
+            </view>
+          </view>
+          <view style='height:1px;width:100%;background:#EBEBEB;'></view>
+          <view class='hao' style='margin-top:{{px2rpxHeight*40}}px;'>您的号码为:
+            <text class='num' style='font-size: {{px2rpxWidth*50}}px;'>{{takeInfo.num}}号</text>
+          </view>
+          <view class='qian' style='margin-top:{{px2rpxHeight*20}}px;'>前方排队车辆:
+            <text style='color:#1781f6; font-size: 16px;'>{{takeInfo.waitfor}}</text>
           </view>
         </view>
-        <view style='height:1px;width:100%;background:#EBEBEB;'></view>
-        <view class='hao' style='margin-top:{{px2rpxHeight*60}}px;'>您的号码为:
-          <text class='num'>{{takeInfo.num}}号</text>
+      </block>
+      <block wx:else>
+        <view style='width:{{px2rpxWidth*450}}px;height:{{px2rpxHeight*350}}px;margin-left:{{px2rpxWidth*150}}px;margin-top:{{px2rpxHeight*250}}px;background:#FFFFFF;border-radius:5px'>
+          <view class='flex'>
+            <view class='esc' style='margin-left:{{px2rpxWidth*160}}px;line-height:{{px2rpxHeight*100}}px;color:#1781F6;font-family:PingFang-SC-Medium;font-weight:bold;letter-spacing: 1rpx;font-size: {{30*px2rpxWidth}}px;' catchtap='cing'>取号成功！</view>
+            <view class='cha' catchtap='cing'>
+              <image src='../../images/close.png' style='width:{{15*px2rpxWidth}}px;height:{{px2rpxHeight*15}}px;margin-left:{{px2rpxWidth*90}}px'></image>
+            </view>
+          </view>
+          <view style='height:1px;width:100%;background:#EBEBEB;'></view>
+          <view class='hao' style='margin-top:{{px2rpxHeight*40}}px;'>您的号码为:
+            <text class='num' style='font-size: {{px2rpxWidth*50}}px;'>{{takeInfo.num}}号</text>
+          </view>
+          <view class='qian' style='margin-top:{{px2rpxHeight*20}}px;'>前方排队车辆:
+            <text style='color:#1781f6; font-size: 16px;'>{{takeInfo.waitfor}}</text>
+          </view>
         </view>
-        <view class='qian' style='margin-top:{{px2rpxHeight*20}}px;'>前方排队车辆:
-          <text style='color:#1781f6; font-size: 16px;'>{{takeInfo.waitfor}}</text>
-        </view>
-      </view>
+      </block>
     </view>
   </block>
   <!-- 正在取号 -->
   <!-- 取消排队 -->
   <block wx:if="{{mask==true}}">
     <view class='location' catchtap='esmask'>
-      <view style='width:{{px2rpxWidth*450}}px;height:{{px2rpxHeight*350}}px;margin-left:{{px2rpxWidth*150}}px;margin-top:{{px2rpxHeight*250}}px;background:#FFFFFF;'>
-        <view class='cha' style='height:{{px2rpxHeight*20}}px' catchtap='esmask'>x</view>
-        <view class='hao' style='margin-left:{{px2rpxWidth*50}}px;line-height:{{px2rpxHeight*200}}px;height:{{150*px2rpxHeight}}px'>您的号码为:
-          <text class='num'>{{takeInfo.num}}号</text>
+      <block wx:if="{{isIphoneX==true}}">
+        <view style='width:{{px2rpxWidth*450}}px;height:{{px2rpxHeight*300}}px;margin-left:{{px2rpxWidth*150}}px;margin-top:{{px2rpxHeight*250}}px;background:#FFFFFF;border-radius:5px'>
+          <view class='cha' style='height:{{px2rpxHeight*20}}px' catchtap='esmask'>x</view>
+          <view class='hao' style='margin-left:{{px2rpxWidth*50}}px;line-height:{{px2rpxHeight*200}}px;height:{{150*px2rpxHeight}}px'>您的号码为:
+            <text class='num'>{{takeInfo.num}}号</text>
+          </view>
+          <view class='qian' style='font-weight: 500;height:{{px2rpxHeight*80}}px'>前方排队车辆:
+            <text style='color:#1781f6; font-size: 16px;'>{{takeInfo.waitfor}}</text>
+          </view>
+          <view style='height:1px;width:100%;background:#EBEBEB;'></view>
+          <view class='esc' style='margin-top:{{px2rpxHeight*20}}px;font-size: {{30*px2rpxWidth}}px' data-code='{{shopInfo.shop_code}}' catchtap='row'>取消排号</view>
         </view>
-        <view class='qian' style='margin-top:{{px2rpxHeight*8}}px;font-weight: 500;height:{{px2rpxHeight*120}}px'>前方排队车辆:
-          <text style='color:#1781f6; font-size: 16px;'>{{takeInfo.waitfor}}</text>
+      </block>
+      <block wx:else>
+        <view style='width:{{px2rpxWidth*450}}px;height:{{px2rpxHeight*350}}px;margin-left:{{px2rpxWidth*150}}px;margin-top:{{px2rpxHeight*250}}px;background:#FFFFFF;border-radius:5px'>
+
+          <view class='cha' style='height:{{px2rpxHeight*20}}px' catchtap='esmask'>x</view>
+          <view class='hao' style='margin-left:{{px2rpxWidth*50}}px;line-height:{{px2rpxHeight*200}}px;height:{{150*px2rpxHeight}}px'>您的号码为:
+            <text class='num'>{{takeInfo.num}}号</text>
+          </view>
+          <view class='qian' style='font-weight: 500;height:{{px2rpxHeight*120}}px'>前方排队车辆:
+            <text style='color:#1781f6; font-size: 16px;'>{{takeInfo.waitfor}}</text>
+          </view>
+          <view style='height:1px;width:100%;background:#EBEBEB;'></view>
+          <view class='esc' style='margin-top:{{px2rpxHeight*20}}px;font-size: {{30*px2rpxWidth}}px' data-code='{{shopInfo.shop_code}}' catchtap='row'>取消排号</view>
         </view>
-        <view style='height:1px;width:100%;background:#EBEBEB;'></view>
-        <view class='esc' style='margin-top:{{px2rpxHeight*10}}px' data-code='{{shopInfo.shop_code}}' catchtap='row'>取消排号</view>
-      </view>
+      </block>
     </view>
   </block>
   <!-- 取消排队完 -->
   <!-- 遮罩层完 -->
-
-
 
 </view>
